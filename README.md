@@ -28,7 +28,7 @@ Examples of Population Genetic Analyses (to estimate population-level metrics) u
 - Detecting selection:
 - Temporal analysis: Compare allele frequencies across time points.
     - Extreme frequency shifts: Identify loci with unusually large frequency changes.
-    - F_ST outliers: Detect loci under divergent selection.
+    - F_ST (Fixation Index) outliers: Detect loci under divergent selection.
 
 **Sources:** ChatGPT, "Write a short paragraph explaining the different applications of pool-seq and include as an example the application of pool-seq of the paper: Robert Kofler, Andrea J. Betancourt, and Christian Schlötterer, “Sequencing of Pooled DNA Samples (Pool-Seq) Uncovers Complex Dynamics of Transposable Element Insertions in Drosophila Melanogaster,” PLoS Genet 8, no. 1 (January 26, 2012): e1002487, doi:10.1371/journal.pgen.1002487."
 
