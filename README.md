@@ -13,7 +13,7 @@
 
 
 ## Exercise B
-**Technology**: qPCR
+**Technology**: Pool-seq
 
 **Description**: Pool-seq (pooled sequencing) is a genomic approach where DNA from many individuals within a population is combined into a single sample and sequenced together, rather than sequencing each individual separately. This method provides estimates of allele frequencies across the population at a much lower cost and effort compared to individual sequencing. While it does not preserve information about individual genotypes, Pool-seq is powerful for studying population genetics, such as detecting selection, estimating genetic diversity, or identifying population structure.
 
