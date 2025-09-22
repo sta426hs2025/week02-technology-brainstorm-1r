@@ -21,9 +21,19 @@
 
 **Application**: Pool-seq´s diverse applications include estimating allele frequencies across populations, tracking evolutionary changes over time, detecting signatures of natural selection, assessing genetic diversity and population structure, monitoring low-frequency or rare variants, and studying structural variants such as transposable element insertions or copy-number changes. In Kofler et al. (2012), Pool-seq was used to study transposable element dynamics in a natural population of Drosophila melanogaster, revealing a large number of both known and novel insertions and showing how their frequencies are influenced by selection, recombination, and TE family characteristics.
 
+Examples of Population Genetic Analyses (to estimate population-level metrics) using pool-seq Data:
+- Allele frequency spectrum (AFS): Estimate the distribution of allele frequencies across loci.
+- Nucleotide diversity (π) and heterozygosity: Compute from read counts (PoPoolation provides scripts for this)
+- Tajima’s D, F_ST, and other statistics: PoPoolation2 allows sliding-window calculations of F_ST, π, and Tajima’s D from pooled data.
+- Detecting selection:
+- Temporal analysis: Compare allele frequencies across time points.
+    - Extreme frequency shifts: Identify loci with unusually large frequency changes.
+    - F_ST outliers: Detect loci under divergent selection.
+
 **Sources:** ChatGPT, "Write a short paragraph explaining the different applications of pool-seq and include as an example the application of pool-seq of the paper: Robert Kofler, Andrea J. Betancourt, and Christian Schlötterer, “Sequencing of Pooled DNA Samples (Pool-Seq) Uncovers Complex Dynamics of Transposable Element Insertions in Drosophila Melanogaster,” PLoS Genet 8, no. 1 (January 26, 2012): e1002487, doi:10.1371/journal.pgen.1002487."
 
 Robert Kofler, Andrea J. Betancourt, and Christian Schlötterer, “Sequencing of Pooled DNA Samples (Pool-Seq) Uncovers Complex Dynamics of Transposable Element Insertions in Drosophila Melanogaster,” PLoS Genet 8, no. 1 (January 26, 2012): e1002487, doi:10.1371/journal.pgen.1002487.
 https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1002487
 
-**Statistical analysis:**
+**Statistical analysis:** Assuming the application: Temporal analysis of F_ST outliers (detecting loci under divergent selection by comparing allele frequencies across time points that are estimated from pool-seq experiments done at different times). 
+
