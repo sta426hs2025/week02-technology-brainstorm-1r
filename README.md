@@ -15,6 +15,14 @@
 ## Exercise B
 **Technology**: qPCR
 
-**Description**: Quantitative PCR (qPCR), also known as real-time PCR, is a technique used to amplify and simultaneously measure DNA. Like standard PCR, it relies on repeated cycles of denaturation, primer binding, and DNA synthesis, but qPCR adds a fluorescent dye or probe that binds to the amplified DNA. As the reaction progresses, the fluorescence increases in proportion to the amount of DNA produced. The PCR machine monitors this fluorescence at each cycle, generating an amplification curve. By determining the cycle threshold (Ct) at which the signal rises above background, the initial amount of target DNA (or RNA, after reverse transcription) can be quantified with high sensitivity and accuracy.
+**Description**: Pool-seq (pooled sequencing) is a genomic approach where DNA from many individuals within a population is combined into a single sample and sequenced together, rather than sequencing each individual separately. This method provides estimates of allele frequencies across the population at a much lower cost and effort compared to individual sequencing. While it does not preserve information about individual genotypes, Pool-seq is powerful for studying population genetics, such as detecting selection, estimating genetic diversity, or identifying population structure.
 
-**Source**: ChatGPT, "write a short paragraph about how qPCR works"
+**Source**: ChatGPT, "write a short paragraph of how pool-seq works"
+
+**Application**: 
+
+**Sources:** 
+Robert Kofler, Andrea J. Betancourt, and Christian Schlötterer, “Sequencing of Pooled DNA Samples (Pool-Seq) Uncovers Complex Dynamics of Transposable Element Insertions in Drosophila Melanogaster,” PLoS Genet 8, no. 1 (January 26, 2012): e1002487, doi:10.1371/journal.pgen.1002487.
+https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1002487
+
+**Statistical analysis:**
