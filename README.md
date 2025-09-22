@@ -19,9 +19,10 @@
 
 **Source**: ChatGPT, "write a short paragraph of how pool-seq works"
 
-**Application**: 
+**Application**: Pool-seq´s diverse applications include estimating allele frequencies across populations, tracking evolutionary changes over time, detecting signatures of natural selection, assessing genetic diversity and population structure, monitoring low-frequency or rare variants, and studying structural variants such as transposable element insertions or copy-number changes. In Kofler et al. (2012), Pool-seq was used to study transposable element dynamics in a natural population of Drosophila melanogaster, revealing a large number of both known and novel insertions and showing how their frequencies are influenced by selection, recombination, and TE family characteristics.
 
-**Sources:** 
+**Sources:** ChatGPT, "Write a short paragraph explaining the different applications of pool-seq and include as an example the application of pool-seq of the paper: Robert Kofler, Andrea J. Betancourt, and Christian Schlötterer, “Sequencing of Pooled DNA Samples (Pool-Seq) Uncovers Complex Dynamics of Transposable Element Insertions in Drosophila Melanogaster,” PLoS Genet 8, no. 1 (January 26, 2012): e1002487, doi:10.1371/journal.pgen.1002487."
+
 Robert Kofler, Andrea J. Betancourt, and Christian Schlötterer, “Sequencing of Pooled DNA Samples (Pool-Seq) Uncovers Complex Dynamics of Transposable Element Insertions in Drosophila Melanogaster,” PLoS Genet 8, no. 1 (January 26, 2012): e1002487, doi:10.1371/journal.pgen.1002487.
 https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1002487
 
