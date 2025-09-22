@@ -35,5 +35,28 @@ Examples of Population Genetic Analyses (to estimate population-level metrics) u
 Robert Kofler, Andrea J. Betancourt, and Christian Schlötterer, “Sequencing of Pooled DNA Samples (Pool-Seq) Uncovers Complex Dynamics of Transposable Element Insertions in Drosophila Melanogaster,” PLoS Genet 8, no. 1 (January 26, 2012): e1002487, doi:10.1371/journal.pgen.1002487.
 https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1002487
 
-**Statistical analysis:** Assuming the application: Temporal analysis of F_ST outliers (detecting loci under divergent selection by comparing allele frequencies across time points that are estimated from pool-seq experiments done at different times). 
+**Statistical analysis:** Assuming the application: Temporal analysis of allele frequencies as a measure of divergence (to detect loci under selection). The goal is to identify loci that show unusually large allele frequency changes (Δ𝑝) over time, which may indicate divergent or directional selection. Since Pool-seq provides allele counts from pooled DNA, statistical methods must account for sampling noise, sequencing error, and the stochasticity of allele frequency changes due to drift.
 
+1) Modelling Neutral Drift
+    To test for selection, we need a null expectation of allele frequency changes under genetic drift:
+    - Binomial model: allele counts are modeled as a binomial sampling of the population allele frequency.
+    - Beta-binomial model: used when there is overdispersion due to Pool-seq sampling or PCR biases.
+    - Wright-Fisher simulations: simulate allele frequency trajectories under drift given effective population size (𝑁𝑒) and number of generations (𝑡).
+
+2) Statistical Testing for Divergent Selection
+    - Approach 1: Outlier detection
+        - Compare the observed Δ𝑝 at each locus to the null distribution under drift.
+        - Loci with extreme Δ𝑝 values (e.g., top 1% genome-wide) are candidate targets of selection.
+    - Approach 2: Likelihood / Bayesian methods
+        - Compute the likelihood of observed allele counts at multiple time points under models of drift vs selection:
+          - 𝐿(data∣𝑠)=∏𝑡Binomial(reads supporting allele∣coverage,𝑝𝑡(𝑠))
+              - 𝑠 = selection coefficient;
+              - 𝑝𝑡(𝑠) = expected allele frequency at time 𝑡 under selection.
+        - Use likelihood ratio tests or Bayesian posterior probabilities to test whether 𝑠 ≠ 0.
+    - Approach 3: Regression / Generalized Linear Models
+        - Treat allele frequency changes as a function of time and fit a GLM with a binomial (or beta-binomial) error structure.
+        - Loci with significant temporal trends can be considered candidates for directional selection.
+
+3) Multiple Testing Correction
+   - Since thousands to millions of loci are tested, control the false discovery rate (FDR) using methods like Benjamini-Hochberg.
+   - Only loci exceeding the significance threshold after correction are considered robust candidates for divergent selection.
