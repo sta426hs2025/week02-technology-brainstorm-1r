@@ -1,7 +1,7 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/aKWLU3-A)
 
-### Group member GitHub usernames 
-CeliaPolanco, chiarakehl
+# Week 2: Technology brainstorm group 1R
+**Group member GitHub usernames**: CeliaPolanco, chiarakehl
 
 ## Exercise A
 **Technology**: flow cytometry
@@ -13,4 +13,8 @@ CeliaPolanco, chiarakehl
 
 
 ## Exercise B
+**Technology**: qPCR
 
+**Description**: Quantitative PCR (qPCR), also known as real-time PCR, is a technique used to amplify and simultaneously measure DNA. Like standard PCR, it relies on repeated cycles of denaturation, primer binding, and DNA synthesis, but qPCR adds a fluorescent dye or probe that binds to the amplified DNA. As the reaction progresses, the fluorescence increases in proportion to the amount of DNA produced. The PCR machine monitors this fluorescence at each cycle, generating an amplification curve. By determining the cycle threshold (Ct) at which the signal rises above background, the initial amount of target DNA (or RNA, after reverse transcription) can be quantified with high sensitivity and accuracy.
+
+**Source**: ChatGPT, "write a short paragraph about how qPCR works"
