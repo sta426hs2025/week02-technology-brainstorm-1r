@@ -39,7 +39,7 @@ https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1002487
         - Loci with extreme Δ𝑝 values (e.g., top 1% genome-wide) are candidate targets of selection.
     - Approach 2: Likelihood / Bayesian methods
         - Compute the likelihood of observed allele counts at multiple time points under models of drift vs selection:
-          - 𝐿(data∣𝑠)=∏𝑡Binomial(reads supporting allele∣coverage,𝑝𝑡(𝑠))
+          - $L(\text{data} \mid s) = \prod_t \text{Binomial}\big(\text{reads supporting allele} \mid \text{coverage}, \; p_t(s)\big)$
               - 𝑠 = selection coefficient;
               - 𝑝𝑡(𝑠) = expected allele frequency at time 𝑡 under selection.
         - Use likelihood ratio tests or Bayesian posterior probabilities to test whether 𝑠 ≠ 0.
