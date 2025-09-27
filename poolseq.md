@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 ## Exercise B
 **Group member GitHub usernames**: CeliaPolanco, chiarakehl, chuddy-ibk
 
@@ -9,14 +14,15 @@
 
 **Application**: Pool-seq's diverse applications include estimating allele frequencies across populations, tracking evolutionary changes over time, detecting signatures of natural selection, assessing genetic diversity and population structure, monitoring low-frequency or rare variants, and studying structural variants such as transposable element insertions or copy-number changes. In Kofler et al. (2012), Pool-seq was used to study transposable element dynamics in a natural population of Drosophila melanogaster, revealing a large number of both known and novel insertions and showing how their frequencies are influenced by selection, recombination, and TE family characteristics.
 
-Examples of Population Genetic Analyses (to estimate population-level metrics) using pool-seq Data:
-- Allele frequency spectrum (AFS): Estimate the distribution of allele frequencies across loci.
-- Nucleotide diversity (π) and heterozygosity: Compute from read counts (PoPoolation provides scripts for this)
-- Tajima’s D, F_ST, and other statistics: Data analylis tools allow fast calculations of F_ST, π, and Tajima’s D from pooled data.
-- Detecting selection:
-- Temporal analysis: Compare allele frequencies across time points.
-    - Extreme frequency shifts: Identify loci with unusually large frequency changes.
-    - F_ST (Fixation Index) outliers: Detect loci under divergent selection.
+- Allele frequency spectrum (AFS): Looks at how common or rare different genetic variants are across the population.
+- Nucleotide diversity (π) and heterozygosity: Measures how much genetic variation exists by checking how often DNA sequences differ at a site.
+- Tajima’s D, F_ST, and similar statistics:
+
+    - Tajima’s D: Checks whether variation looks “normal” or suggests selection/bottlenecks.
+    - F_ST: How genetically different two populations are; higher = more distinct.
+
+- Detecting selection: Identifies regions where selection may be acting.
+- Temporal analysis: Tracks allele-frequency changes over time.
 
 **Sources:** 
 
@@ -27,26 +33,26 @@ https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1002487
 
 **Statistical analysis:** Assuming the application: Temporal analysis of allele frequencies as a measure of divergence (to detect loci under selection). The goal is to identify loci that show unusually large allele frequency changes (Δ𝑝) over time, which may indicate divergent or directional selection. Since Pool-seq provides allele counts from pooled DNA, statistical methods must account for sampling noise, sequencing error, and the stochasticity of allele frequency changes due to drift.
 
-1) Modelling Neutral Drift
-    To test for selection, we need a null expectation of allele frequency changes under genetic drift:
-    - Binomial model: allele counts are modeled as a binomial sampling of the population allele frequency.
-    - Beta-binomial model: used when there is overdispersion due to Pool-seq sampling or PCR biases.
-    - Wright-Fisher simulations: simulate allele frequency trajectories under drift given effective population size (𝑁𝑒) and number of generations (𝑡).
+1) Modelling Neutral Drift  
+    To test whether allele frequency changes are due to selection, we first need to know what changes would look like if they were only caused by random chance (genetic drift). Models for this include:  
+    - **Binomial model:** Think of allele counts like flipping a coin many times, choosing between reference allel and alternative allel. Frequencies change randomly.  
+    - **Beta-binomial model:** Similar to the binomial, but adds extra “messiness” to account for sequencing errors or biases.  
+    - **Wright-Fisher simulations:** Computer simulations of how allele frequencies would randomly change over generations, given population size and time.  
 
-2) Statistical Testing for Divergent Selection
-    - Approach 1: Outlier detection
-        - Compare the observed Δ𝑝 at each locus to the null distribution under drift.
-        - Loci with extreme Δ𝑝 values (e.g., top 1% genome-wide) are candidate targets of selection.
-    - Approach 2: Likelihood / Bayesian methods
-        - Compute the likelihood of observed allele counts at multiple time points under models of drift vs selection:
-          - $L(\text{data} \mid s) = \prod_t \text{Binomial}\big(\text{reads supporting allele} \mid \text{coverage}, \; p_t(s)\big)$
-              - 𝑠 = selection coefficient;
-              - 𝑝𝑡(𝑠) = expected allele frequency at time 𝑡 under selection.
-        - Use likelihood ratio tests or Bayesian posterior probabilities to test whether 𝑠 ≠ 0.
-    - Approach 3: Regression / Generalized Linear Models
-        - Treat allele frequency changes as a function of time and fit a GLM with a binomial (or beta-binomial) error structure.
-        - Loci with significant temporal trends can be considered candidates for directional selection.
+2) Statistical Testing for Divergent Selection  
+    Once we know what random change looks like, we can ask whether the observed allele frequency changes are too big to be explained by drift alone. Common approaches are:  
+    - **Approach 1: Outlier detection**  
+        - Look for loci where allele frequency changes are much larger than expected.  
+        - Loci with extreme changes (e.g., top 1% of the genome) are considered possible targets of selection.  
+    - **Approach 2: Likelihood / Bayesian methods**  
+        - Compare how likely the data are under two models: drift-only versus drift + selection.  
+        - If the data fit the selection model much better, this suggests a nonzero selection coefficient (s).  
+    - **Approach 3: Regression / GLMs**  
+        - Treat allele frequency as a trend over time.  
+        - If the trend is too strong to be explained by drift, the locus may be under selection.  
 
-3) Multiple Testing Correction
-   - Since thousands to millions of loci are tested, control the false discovery rate (FDR) using methods like Benjamini-Hochberg.
-   - Only loci exceeding the significance threshold after correction are considered robust candidates for divergent selection.
+3) Multiple Testing Correction  
+    Because we test thousands or even millions of loci, some will look like “false positives” just by chance.  
+    - To avoid this, methods like **false discovery rate (FDR) correction** are used.  
+    - Only loci that remain significant after correction are considered reliable candidates for selection.  
+
