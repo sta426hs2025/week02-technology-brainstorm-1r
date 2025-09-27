@@ -1,8 +1,3 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
 ## Exercise B
 **Group member GitHub usernames**: CeliaPolanco, chiarakehl, chuddy-ibk
 
