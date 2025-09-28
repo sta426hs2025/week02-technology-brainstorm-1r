@@ -12,10 +12,8 @@
 - Allele frequency spectrum (AFS): Looks at how common or rare different genetic variants are across the population.
 - Nucleotide diversity (π) and heterozygosity: Measures how much genetic variation exists by checking how often DNA sequences differ at a site.
 - Tajima’s D, F_ST, and similar statistics:
-
     - Tajima’s D: Checks whether variation looks “normal” or suggests selection/bottlenecks.
     - F_ST: How genetically different two populations are; higher = more distinct.
-
 - Detecting selection: Identifies regions where selection may be acting.
 - Temporal analysis: Tracks allele-frequency changes over time.
 
